@@ -294,37 +294,43 @@ function processar_vincular_coluna() {
         $tabela_selecionada = sanitize_text_field($_POST['tabela_selecionada']);
         $coluna_vincular = sanitize_text_field($_POST['coluna_vincular']);
         $tabela_referenciada = sanitize_text_field($_POST['tabela_referenciada']);
+        $tabela_referenciada = str_replace($wpdb->prefix, '', $tabela_referenciada);
         $coluna_referenciada = sanitize_text_field($_POST['coluna_referenciada']);
         $tabela_completa = $wpdb->prefix . $tabela_selecionada;
 
+        // Verificação da existência da tabela selecionada
         if (!$wpdb->get_var("SHOW TABLES LIKE '$tabela_completa'")) {
             exibir_mensagem_vinculacao('erro', "Erro: A tabela '$tabela_completa' não existe.");
             return;
         }
 
+        // Verificação da existência da coluna na tabela selecionada
         $colunas_selecionada = $wpdb->get_col("SHOW COLUMNS FROM $tabela_completa LIKE '$coluna_vincular'");
         if (empty($colunas_selecionada)) {
             exibir_mensagem_vinculacao('erro', "Erro: A coluna '$coluna_vincular' não existe na tabela '$tabela_completa'.");
             return;
         }
 
-        if (!$wpdb->get_var("SHOW TABLES LIKE '$tabela_referenciada'")) {
-            exibir_mensagem_vinculacao('erro', "Erro: A tabela '$tabela_referenciada' não existe.");
+        // Verificação da existência da tabela referenciada
+        if (!$wpdb->get_var("SHOW TABLES LIKE '{$wpdb->prefix}$tabela_referenciada'")) {
+            exibir_mensagem_vinculacao('erro', "Erro: A tabela '{$wpdb->prefix}$tabela_referenciada' não existe.");
             return;
         }
 
-        $colunas_referenciada = $wpdb->get_col("SHOW COLUMNS FROM $tabela_referenciada LIKE '$coluna_referenciada'");
+        // Verificação da existência da coluna na tabela referenciada
+        $colunas_referenciada = $wpdb->get_col("SHOW COLUMNS FROM {$wpdb->prefix}$tabela_referenciada LIKE '$coluna_referenciada'");
         if (empty($colunas_referenciada)) {
-            exibir_mensagem_vinculacao('erro', "Erro: A coluna '$coluna_referenciada' não existe na tabela '$tabela_referenciada'.");
+            exibir_mensagem_vinculacao('erro', "Erro: A coluna '$coluna_referenciada' não existe na tabela '{$wpdb->prefix}$tabela_referenciada'.");
             return;
         }
 
+        // Criar a query de vínculo da coluna como chave estrangeira
         $sql = "ALTER TABLE $tabela_completa 
                 ADD CONSTRAINT fk_{$coluna_vincular} 
                 FOREIGN KEY ($coluna_vincular) 
-                REFERENCES wp_T20_racas($coluna_referenciada)";
-                
-        exibir_mensagem_vinculacao('sucesso', $sql);
+                REFERENCES {$wpdb->prefix}$tabela_referenciada($coluna_referenciada)";
+
+        // Executar a query
         $resultado = $wpdb->query($sql);
 
         if ($resultado !== false) {
@@ -335,7 +341,6 @@ function processar_vincular_coluna() {
     }
 }
 add_action('init', 'processar_vincular_coluna');
-
 
 function interface_atualizar_coluna($tabela_selecionada, $coluna_atualizar) {
     $tipos_dados = [
@@ -518,6 +523,9 @@ function mostrar_dados_tabela($tabela) {
     $dados = $wpdb->get_results("SELECT * FROM $tabela_completa");
 
     if ($dados) {
+        // Adicionar div com rolagem e limitar a altura
+        echo "<div style='max-height: 400px; overflow-y: auto;'>"; // Adiciona rolagem se o conteúdo exceder 400px
+
         echo "<table class='widefat fixed'>";
         echo "<thead><tr>";
     
@@ -529,7 +537,10 @@ function mostrar_dados_tabela($tabela) {
         echo "</tr></thead>";
     
         echo "<tbody>";
+        
+
         foreach ($dados as $linha) {
+            
             echo "<tr>";
             foreach ($linha as $valor) {
                 // Limitar o número de caracteres exibidos
@@ -557,8 +568,11 @@ function mostrar_dados_tabela($tabela) {
             echo "</td>";
     
             echo "</tr>";
+            
+            $contador_linhas++;
         }
         echo "</tbody></table>";
+        echo "</div>"; // Fechar a div de rolagem
     
         // Botão "Adicionar Dado"
         echo "<div style='margin-top: 20px;'>";
@@ -580,6 +594,24 @@ function mostrar_dados_tabela($tabela) {
 
 }
 
+
+// Função para verificar se o campo está vinculado a outra tabela
+function verificar_vinculo($campo, $tabela_atual) {
+    global $wpdb;
+
+    // Supondo que as chaves estrangeiras seguem o padrão nome_campo e estão vinculadas a id na tabela referenciada
+    $chave_estrangeira = $wpdb->get_results("
+        SELECT REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME 
+        FROM information_schema.KEY_COLUMN_USAGE 
+        WHERE TABLE_NAME = '{$tabela_atual}' 
+        AND COLUMN_NAME = '{$campo}' 
+        AND CONSTRAINT_SCHEMA = '{$wpdb->dbname}' 
+        AND REFERENCED_TABLE_NAME IS NOT NULL
+    ");
+
+    return $chave_estrangeira ? $chave_estrangeira[0] : false;
+}
+
 // Função para exibir o formulário de inserção de novos dados
 function exibir_formulario_inserir_dados($tabela) {
     global $wpdb;
@@ -597,29 +629,55 @@ function exibir_formulario_inserir_dados($tabela) {
                     // Se o campo permite NULL ou tem um valor padrão, não deve ser obrigatório
                     $is_required = ($campo->Null === 'NO' && $campo->Default === null) ? 'required' : '';
 
-                    // Determinar o tipo de campo
-                    $field_type = 'text'; // Tipo padrão
+                    // Verificar se o campo é uma chave estrangeira e está vinculado a outra tabela
+                    $vinculo = verificar_vinculo($campo->Field, $tabela_completa);
 
-                    // Ajustar o tipo de input baseado no tipo do campo
-                    if (strpos($campo->Type, 'int') !== false || strpos($campo->Type, 'float') !== false || strpos($campo->Type, 'double') !== false) {
-                        $field_type = 'number';
-                    } elseif (strpos($campo->Type, 'text') !== false) {
-                        $field_type = 'textarea'; // Para campos de texto longo
+                    if ($vinculo) {
+                        // Obter as opções da tabela referenciada
+                        $tabela_referenciada = $vinculo->REFERENCED_TABLE_NAME;
+                        $opcoes = $wpdb->get_results("SELECT id, nome FROM $tabela_referenciada");
+
+                        ?>
+                        <tr>
+                            <th>
+                                <label for="<?php echo esc_attr($campo->Field); ?>"><?php echo esc_html($campo->Field); ?>:</label>
+                            </th>
+                            <td>
+                                <select name="<?php echo esc_attr($campo->Field); ?>" <?php echo $is_required; ?>>
+                                    <option value="">Selecione uma opção</option>
+                                    <?php foreach ($opcoes as $opcao): ?>
+                                        <option value="<?php echo esc_attr($opcao->id); ?>"><?php echo esc_html($opcao->nome); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                        </tr>
+                        <?php
+                    } else {
+                        // Determinar o tipo de campo
+                        $field_type = 'text'; // Tipo padrão
+
+                        // Ajustar o tipo de input baseado no tipo do campo
+                        if (strpos($campo->Type, 'int') !== false || strpos($campo->Type, 'float') !== false || strpos($campo->Type, 'double') !== false) {
+                            $field_type = 'number';
+                        } elseif (strpos($campo->Type, 'text') !== false) {
+                            $field_type = 'textarea'; // Para campos de texto longo
+                        }
+                        ?>
+                        <tr>
+                            <th>
+                                <label for="<?php echo esc_attr($campo->Field); ?>"><?php echo esc_html($campo->Field); ?>:</label>
+                            </th>
+                            <td>
+                                <?php if ($field_type === 'textarea'): ?>
+                                    <textarea name="<?php echo esc_attr($campo->Field); ?>" rows="4" cols="50" <?php echo $is_required; ?>></textarea>
+                                <?php else: ?>
+                                    <input type="<?php echo $field_type; ?>" name="<?php echo esc_attr($campo->Field); ?>" <?php echo $is_required; ?>>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                        <?php
                     }
-                ?>
-                    <tr>
-                        <th>
-                            <label for="<?php echo esc_attr($campo->Field); ?>"><?php echo esc_html($campo->Field); ?>:</label>
-                        </th>
-                        <td>
-                            <?php if ($field_type === 'textarea'): ?>
-                                <textarea name="<?php echo esc_attr($campo->Field); ?>" rows="4" cols="50" <?php echo $is_required; ?>></textarea>
-                            <?php else: ?>
-                                <input type="<?php echo $field_type; ?>" name="<?php echo esc_attr($campo->Field); ?>" <?php echo $is_required; ?>>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
+                endforeach; ?>
             </table>
 
             <input type="hidden" name="tabela_selecionada" value="<?php echo esc_attr($tabela); ?>">
@@ -630,7 +688,6 @@ function exibir_formulario_inserir_dados($tabela) {
         exibir_mensagem_vinculacao('erro', "Não foi possível obter os campos da tabela.");
     }
 }
-
 
 // Processar a inserção de novos dados
 function processar_insercao_dados() {
@@ -665,32 +722,6 @@ function processar_insercao_dados() {
     }
 }
 add_action('init', 'processar_insercao_dados');
-
-// Verificar se o formulário foi enviado
-if (isset($_POST['atualizar_dado'])) {
-    $tabela = sanitize_text_field($_POST['tabela_selecionada']);
-    $id = sanitize_text_field($_POST['id_atualizar']);
-    
-    // Coleta os campos a partir da estrutura da tabela
-    global $wpdb;
-    $tabela_completa = $wpdb->prefix . $tabela;
-    $campos = $wpdb->get_results("DESCRIBE $tabela_completa");
-    
-    // Coletar dados atualizados do formulário
-    $dados_atualizados = [];
-    foreach ($campos as $campo) {
-        $nome_campo = $campo->Field;
-
-        // Ignorar campos auto_increment
-        if ($campo->Extra === 'auto_increment') continue;
-
-        // Coletar dados atualizados, mantendo o valor original se o campo não estiver no $_POST
-        $dados_atualizados[$nome_campo] = isset($_POST[$nome_campo]) ? sanitize_text_field($_POST[$nome_campo]) : '';
-    }
-
-    // Chamar a função de processamento de atualização
-    processar_atualizacao_dado($tabela, $id, $dados_atualizados);
-}
 
 // Função para exibir o formulário de atualização de dados
 function exibir_formulario_atualizar_dado($tabela, $id) {
@@ -752,22 +783,43 @@ function exibir_formulario_atualizar_dado($tabela, $id) {
 }
 
 // Função para processar a atualização de dados
-function processar_atualizacao_dado($tabela, $id, $dados_atualizados) {
-    global $wpdb;
-    $tabela_completa = $wpdb->prefix . $tabela;
+function processar_atualizacao_dado() {
+    if (isset($_POST['atualizar_dado'])) {
+        global $wpdb;
 
-    // Remover o campo 'id' dos dados a serem atualizados, pois ele não pode ser atualizado
-    unset($dados_atualizados['id']);
+        $tabela = sanitize_text_field($_POST['tabela_selecionada']);
+        $id = sanitize_text_field($_POST['id_atualizar']);
+        
+        // Coleta os campos a partir da estrutura da tabela
+        $tabela_completa = $wpdb->prefix . $tabela;
+        $campos = $wpdb->get_results("DESCRIBE $tabela_completa");
+        
+        // Coletar dados atualizados do formulário
+        $dados_atualizados = [];
+        foreach ($campos as $campo) {
+            $nome_campo = $campo->Field;
 
-    // Atualizar os dados da tabela
-    $resultado = $wpdb->update($tabela_completa, $dados_atualizados, array('id' => $id));
+            // Ignorar campos auto_increment
+            if ($campo->Extra === 'auto_increment') continue;
 
-    if ($resultado !== false) {
-        exibir_mensagem_vinculacao('sucesso', "Dado com ID $id atualizado com sucesso.");
-    } else {
-        exibir_mensagem_vinculacao('erro', "Erro ao atualizar o dado com ID $id.");
+            // Coletar dados atualizados, mantendo o valor original se o campo não estiver no $_POST
+            $dados_atualizados[$nome_campo] = isset($_POST[$nome_campo]) ? sanitize_text_field($_POST[$nome_campo]) : '';
+        }
+
+        // Remover o campo 'id' dos dados a serem atualizados, pois ele não pode ser atualizado
+        unset($dados_atualizados['id']);
+
+        // Atualizar os dados da tabela
+        $resultado = $wpdb->update($tabela_completa, $dados_atualizados, array('id' => $id));
+
+        if ($resultado !== false) {
+            exibir_mensagem_vinculacao('sucesso', "Dado com ID $id atualizado com sucesso.");
+        } else {
+            exibir_mensagem_vinculacao('erro', "Erro ao atualizar o dado com ID $id.");
+        }
     }
 }
+add_action('init', 'processar_atualizacao_dado');
 
 // Função para processar a exclusão de dados
 function processar_exclusao_dados() {

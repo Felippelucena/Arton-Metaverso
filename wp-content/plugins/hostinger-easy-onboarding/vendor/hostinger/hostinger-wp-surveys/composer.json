@@ -3,7 +3,7 @@
 	"description": "A PHP package with surveys for WordPress plugins",
 	"license": "proprietary",
 	"type": "library",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"require": {
 		"php": ">=8.0",
 		"hostinger/hostinger-wp-helper": "dev-main"

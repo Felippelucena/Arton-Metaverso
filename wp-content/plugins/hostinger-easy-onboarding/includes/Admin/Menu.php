@@ -8,6 +8,7 @@ defined( 'ABSPATH' ) || exit;
 
 class Menu {
     public const WEBSITE_LIST_URL = 'https://hpanel.hostinger.com/websites';
+    public const HPANEL_HOME = 'https://hpanel.hostinger.com';
     public const WEBSITE_BILLINGS_URL = 'https://hpanel.hostinger.com/billing/subscriptions';
 
 	public function __construct() {
@@ -23,9 +24,15 @@ class Menu {
      */
     public function add_admin_bar_items(array $menu_items): array {
         $menu_items[] = array(
-            'id'     => 'hostinger-easy-onboarding-admin-bar',
+            'id'     => 'hostinger-easy-onboarding-admin-bar-onboarding',
             'title'  => esc_html__( 'Onboarding', 'hostinger-easy-onboarding' ),
             'href'  => admin_url( 'admin.php?page=hostinger-get-onboarding' )
+        );
+
+        $menu_items[] = array(
+            'id'     => 'hostinger-easy-onboarding-admin-bar-learn',
+            'title'  => esc_html__( 'Learn', 'hostinger-easy-onboarding' ),
+            'href'  => admin_url( 'admin.php?page=hostinger-get-learn' )
         );
 
         return $menu_items;
@@ -46,8 +53,17 @@ class Menu {
 		</svg>';
 
         $menu_items[] = array(
+            'id'     => 'hostinger_hpanel_home_admin_bar',
+            'title'  => esc_html__( 'hPanel - Home', 'hostinger-easy-onboarding' ) . $external_icon,
+            'href'  => self::HPANEL_HOME,
+            'meta'   => array(
+                'target' => '_blank',
+            )
+        );
+
+        $menu_items[] = array(
             'id'     => 'hostinger_website_list_admin_bar',
-            'title'  => esc_html__( 'Website list', 'hostinger-easy-onboarding' ) . $external_icon,
+            'title'  => esc_html__( 'hPanel - Websites', 'hostinger-easy-onboarding' ) . $external_icon,
             'href'  => self::WEBSITE_LIST_URL,
             'meta'   => array(
                 'target' => '_blank',
@@ -56,7 +72,7 @@ class Menu {
 
         $menu_items[] = array(
             'id'     => 'hostinger_billings_admin_bar',
-            'title'  => esc_html__( 'Billings', 'hostinger-easy-onboarding' ) . $external_icon,
+            'title'  => esc_html__( 'hPanel - Billing', 'hostinger-easy-onboarding' ) . $external_icon,
             'href'  => self::WEBSITE_BILLINGS_URL,
             'meta'   => array(
                 'target' => '_blank',

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Hostinger\\Amplitude\\ActionDispatcher' => $vendorDir . '/hostinger/hostinger-wp-amplitude/src/ActionDispatcher.php',
     'Hostinger\\Amplitude\\AmplitudeLoader' => $vendorDir . '/hostinger/hostinger-wp-amplitude/src/AmplitudeLoader.php',
     'Hostinger\\Amplitude\\AmplitudeManager' => $vendorDir . '/hostinger/hostinger-wp-amplitude/src/AmplitudeManager.php',
     'Hostinger\\Amplitude\\Rest' => $vendorDir . '/hostinger/hostinger-wp-amplitude/src/Rest.php',

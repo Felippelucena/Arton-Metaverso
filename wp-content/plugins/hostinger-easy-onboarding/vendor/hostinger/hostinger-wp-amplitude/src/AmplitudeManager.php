@@ -6,9 +6,11 @@ use Hostinger\WpHelper\Config;
 use Hostinger\WpHelper\Requests\Client;
 use Hostinger\WpHelper\Utils as Helper;
 
-class AmplitudeManager {
+class AmplitudeManager
+{
     public const AMPLITUDE_ENDPOINT = '/v3/wordpress/plugin/trigger-event';
     private const CACHE_ONE_DAY = 86400;
+    private const LOGIN_DATA = 'hostinger_login_data';
 
     private Config $configHandler;
     private Client $client;
@@ -24,29 +26,56 @@ class AmplitudeManager {
         $this->client        = $client;
     }
 
-    public function sendRequest( string $endpoint, array $params ): array {
+    public function sendRequest( string $endpoint, array $params ) : array {
         try {
-            if ( !$this->shouldSendAmplitudeEvent( $params ) ) {
-                return array();
+            if ( ! $this->isTransientSystemWorking() ) {
+                return [ 'status' => 'error', 'message' => 'Database error: Transient not set correctly' ];
             }
 
-            $response = $this->client->post( $endpoint, array( 'params' => $params ) );
+            if ( ! $this->shouldSendAmplitudeEvent( $params ) ) {
+                return [];
+            }
+
+            $params = $this->addImpersonationData( $params );
+
+            $response = $this->client->post( $endpoint, [ 'params' => $params ] );
+
             return $response;
         } catch ( \Exception $exception ) {
             $this->helper->errorLog( 'Error sending request: ' . $exception->getMessage() );
-            return ['status' => 'error', 'message' => $exception->getMessage()];
+
+            return [ 'status' => 'error', 'message' => $exception->getMessage() ];
         }
     }
 
+    public function addImpersonationData( array $params ) : array {
+        $login_data = get_transient( self::LOGIN_DATA );
+
+        if ( $login_data === false ) {
+            return $params;
+        }
+
+        if ( ! empty( $login_data['acting_client_id'] ) ) {
+            $params['is_impersonated']        = true;
+            $params['impersonated_client_id'] = sanitize_text_field( $login_data['acting_client_id'] );
+        }
+
+        if ( ! empty( $login_data['client_id'] ) ) {
+            $params['client_id'] = sanitize_text_field( $login_data['client_id'] );
+        }
+
+        return $params;
+    }
+
     // Events which firing once per day
-    public static function getSingleAmplitudeEvents(): array {
+    public static function getSingleAmplitudeEvents() : array {
         return apply_filters( 'hostinger_once_per_day_events', [] );
     }
 
-    public function shouldSendAmplitudeEvent( array $params ): bool {
+    public function shouldSendAmplitudeEvent( array $params ) : bool {
         $oneTimePerDay = self::getSingleAmplitudeEvents();
 
-        $eventAction = sanitize_text_field( !empty( $params['action'] ) ? $params['action'] : '' );
+        $eventAction = sanitize_text_field( ! empty( $params['action'] ) ? $params['action'] : '' );
 
         if ( in_array( $eventAction, $oneTimePerDay ) && get_transient( $eventAction ) ) {
             return false;
@@ -57,5 +86,13 @@ class AmplitudeManager {
         }
 
         return true;
+    }
+
+    public function isTransientSystemWorking() : bool {
+        set_transient( 'check_transients', 'value', 60 );
+
+        $testValue = get_transient( 'check_transients' );
+
+        return $testValue !== false;
     }
 }

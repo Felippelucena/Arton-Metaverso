@@ -3,7 +3,7 @@
 	"description": "A PHP package with amplitude events for WordPress plugins",
 	"license": "proprietary",
 	"type": "library",
-	"version": "1.0.6",
+	"version": "1.0.9",
 	"require": {
 		"php": ">=8.0",
 		"hostinger/hostinger-wp-helper": "dev-main"

@@ -1,0 +1,22 @@
+# Arquivos de configuração do WordPress
+wp-config.php
+
+# Diretórios de uploads
+wp-content/uploads/
+
+# Arquivos de cache
+wp-content/cache/
+
+# Diretórios de backups
+wp-content/backups/
+
+# Outros arquivos sensíveis
+.htaccess
+.htaccess.bk
+defalt.php
+error_log
+readme.html
+*.log
+*.env
+*.private
+.private/

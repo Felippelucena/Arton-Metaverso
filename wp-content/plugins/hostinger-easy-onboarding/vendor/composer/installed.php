@@ -3,7 +3,7 @@
         'name' => 'hostinger/hostinger-easy-onboarding',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c20764dea154088250f29efcaf23907e48225d41',
+        'reference' => 'e367bd848c8e18be1cbfd69d2e4b07aea086ce2e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'hostinger/hostinger-easy-onboarding' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c20764dea154088250f29efcaf23907e48225d41',
+            'reference' => 'e367bd848c8e18be1cbfd69d2e4b07aea086ce2e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -22,7 +22,7 @@
         'hostinger/hostinger-wp-amplitude' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1574b50a48422ebbc5c4af72491ad65d14d977a3',
+            'reference' => '3deeead8b22f32349515fd5960b64d8124548971',
             'type' => 'library',
             'install_path' => __DIR__ . '/../hostinger/hostinger-wp-amplitude',
             'aliases' => array(
@@ -44,7 +44,7 @@
         'hostinger/hostinger-wp-menu-manager' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '766ab6448cfc411e4a58e6dac0399d8280efd4e8',
+            'reference' => '91e21010dfc8dec2b4f8c2d61da16739f6c03eb3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../hostinger/hostinger-wp-menu-manager',
             'aliases' => array(
@@ -55,7 +55,7 @@
         'hostinger/hostinger-wp-surveys' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '466094f7af77cf580e0d415183c704aecdae7a35',
+            'reference' => 'f9d2868638292c7eb43560386990bb9da21656e1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../hostinger/hostinger-wp-surveys',
             'aliases' => array(

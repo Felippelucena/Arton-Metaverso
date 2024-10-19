@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Elementor Website Builder &#8211; More than Just a Page Builder - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-09-23 13:13:18+0000\n"
+"PO-Revision-Date: 2024-10-15 23:46:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1058,7 +1058,7 @@ msgid "Optimized Markup"
 msgstr "Marcação otimizada"
 
 #: core/admin/admin.php:999 includes/controls/gallery.php:120
-#: includes/controls/media.php:270
+#: includes/controls/media.php:269
 msgid "Optimize your images to enhance site performance by using Image Optimizer."
 msgstr "Otimize suas imagens para melhorar o desempenho do site usando o Image Optimizer."
 
@@ -1324,7 +1324,7 @@ msgid "Scrolling Effects"
 msgstr "Efeitos de rolagem"
 
 #: core/admin/admin-notices.php:462 includes/controls/gallery.php:123
-#: includes/controls/media.php:273
+#: includes/controls/media.php:272
 msgid "Install Plugin"
 msgstr "Instalar plugin"
 
@@ -1487,7 +1487,7 @@ msgstr "Todos os modelos"
 msgid "Add New Template"
 msgstr "Adicionar novo modelo"
 
-#: includes/controls/groups/image-size.php:296 includes/controls/media.php:313
+#: includes/controls/groups/image-size.php:296 includes/controls/media.php:312
 #: includes/widgets/testimonial.php:323
 #: modules/atomic-widgets/widgets/atomic-image.php:90
 msgid "Image Resolution"
@@ -1900,27 +1900,27 @@ msgstr "Ajustar ao tamanho"
 msgid "You are currently editing an Accordion Widget in its old version. Any new Accordion widget dragged into the canvas will be the new Accordion widget, with the improved Nested capabilities."
 msgstr "No momento, você está editando um widget de \"Sanfona\" em sua versão antiga. Qualquer novo widget de \"Sanfona\" arrastado para a tela será o novo widget de \"Sanfona\", com recursos aninhados melhorados."
 
-#: includes/frontend.php:1422
+#: includes/frontend.php:1429
 msgid "Go to slide"
 msgstr "Ir para o slide"
 
-#: includes/frontend.php:1421
+#: includes/frontend.php:1428
 msgid "This is the last slide"
 msgstr "Este é o último slide"
 
-#: includes/frontend.php:1420
+#: includes/frontend.php:1427
 msgid "This is the first slide"
 msgstr "Este é o primeiro slide"
 
-#: includes/frontend.php:1419
+#: includes/frontend.php:1426
 msgid "Next slide"
 msgstr "Próximo slide"
 
-#: includes/frontend.php:1418
+#: includes/frontend.php:1425
 msgid "Previous slide"
 msgstr "Slide anterior"
 
-#: includes/frontend.php:1417
+#: includes/frontend.php:1424
 msgid "Carousel | Horizontal scrolling: Arrow Left & Right"
 msgstr "Carrossel | Rolagem horizontal: Setas para esquerda e direita"
 
@@ -2450,8 +2450,8 @@ msgstr "Anotações"
 #: assets/js/app-packages.js:5891 assets/js/app.js:3418
 #: assets/js/editor.js:8397 assets/js/editor.js:52814 assets/js/editor.js:52829
 #: assets/js/editor.js:52844 assets/js/editor.js:52859
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:513
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1461
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:513
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1462
 msgid "Upgrade Now"
 msgstr "Atualizar agora"
 
@@ -2473,7 +2473,7 @@ msgstr "Atualizar agora"
 #: assets/js/ai-media-library.js:5368 assets/js/ai.js:4044 assets/js/ai.js:6020
 #: assets/js/ai.js:6150 assets/js/app-packages.js:5856 assets/js/editor.js:6885
 #: assets/js/notes.js:153
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:767
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:767
 #: assets/js/styleguide.js:196
 msgid "Upgrade"
 msgstr "Atualizar"
@@ -3605,7 +3605,7 @@ msgstr "Tem certeza de que deseja excluir suas configurações do site?"
 msgid "The Global value you are trying to use is not available."
 msgstr "O valor global que você está tentando usar não está disponível."
 
-#: includes/controls/media.php:196
+#: includes/controls/media.php:195
 msgid "Choose SVG"
 msgstr "Escolher SVG"
 
@@ -3653,7 +3653,7 @@ msgstr "Preencher"
 msgid "Object Fit"
 msgstr "Ajuste do objeto"
 
-#: includes/frontend.php:1408
+#: includes/frontend.php:1415
 msgid "Download"
 msgstr "Baixar"
 
@@ -3719,7 +3719,7 @@ msgid "Suggested image dimensions: %1$s × %2$s pixels."
 msgstr "Dimensões sugeridas para a imagem: %1$s × %2$s pixels."
 
 #: core/kits/documents/tabs/settings-site-identity.php:93
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1048
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1048
 msgid "Site Logo"
 msgstr "Logo do site"
 
@@ -3736,7 +3736,7 @@ msgid "Choose name"
 msgstr "Escolher nome"
 
 #: core/kits/documents/tabs/settings-site-identity.php:71
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1044
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1044
 msgid "Site Name"
 msgstr "Nome do site"
 
@@ -3769,7 +3769,7 @@ msgstr "As alterações serão refletidas na pré-visualização apenas após o 
 msgid "Reset Data"
 msgstr "Redefinir dados"
 
-#: includes/controls/media.php:286
+#: includes/controls/media.php:285
 msgid "Click the media icon to upload file"
 msgstr "Clique no ícone de mídia para enviar o arquivo"
 
@@ -3791,19 +3791,19 @@ msgstr "Ativar envios de arquivos não filtrados"
 msgid "If you are experiencing a loading issue, contact your site administrator to troubleshoot the problem using Safe Mode."
 msgstr "Se você estiver enfrentando um problema de carregamento, fale com o administrador do seu site para solucionar o problema usando o \"Modo seguro\"."
 
-#: includes/frontend.php:1409
+#: includes/frontend.php:1416
 msgid "Download image"
 msgstr "Baixar imagem"
 
-#: includes/frontend.php:1407
+#: includes/frontend.php:1414
 msgid "Pin it"
 msgstr "Fixar"
 
-#: includes/frontend.php:1406
+#: includes/frontend.php:1413
 msgid "Share on Twitter"
 msgstr "Compartilhar no Twitter"
 
-#: includes/frontend.php:1405
+#: includes/frontend.php:1412
 msgid "Share on Facebook"
 msgstr "Compartilhar no Facebook"
 
@@ -3869,11 +3869,11 @@ msgstr "Tamanho dos ícones da barra de ferramentas"
 msgid "Alt"
 msgstr "Alt"
 
-#: core/kits/documents/tabs/settings-lightbox.php:86 includes/frontend.php:1412
+#: core/kits/documents/tabs/settings-lightbox.php:86 includes/frontend.php:1419
 msgid "Share"
 msgstr "Compartilhar"
 
-#: core/kits/documents/tabs/settings-lightbox.php:66 includes/frontend.php:1410
+#: core/kits/documents/tabs/settings-lightbox.php:66 includes/frontend.php:1417
 msgid "Fullscreen"
 msgstr "Tela cheia"
 
@@ -4018,16 +4018,16 @@ msgstr "Duração"
 msgid "Clear Log"
 msgstr "Limpar registro"
 
-#: includes/frontend.php:1415 assets/js/app.js:7834 assets/js/app.js:9516
+#: includes/frontend.php:1422 assets/js/app.js:7834 assets/js/app.js:9516
 #: assets/js/app.js:10432
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1674
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1725
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:2004
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:2281
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1677
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1728
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:2007
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:2284
 msgid "Next"
 msgstr "Próximo"
 
-#: includes/frontend.php:1414 assets/js/app.js:8708 assets/js/app.js:9503
+#: includes/frontend.php:1421 assets/js/app.js:8708 assets/js/app.js:9503
 #: assets/js/app.js:10425
 msgid "Previous"
 msgstr "Anterior"
@@ -4201,7 +4201,7 @@ msgstr "Reproduzir uma vez"
 msgid "Upload SVG"
 msgstr "Enviar arquivo SVG"
 
-#: includes/controls/media.php:193
+#: includes/controls/media.php:192
 msgid "Choose Video"
 msgstr "Escolher vídeo"
 
@@ -4312,7 +4312,7 @@ msgstr "Este arquivo não é permitido por motivos de segurança."
 msgid "Sign Up"
 msgstr "Cadastrar"
 
-#: includes/controls/media.php:299 includes/controls/media.php:301
+#: includes/controls/media.php:298 includes/controls/media.php:300
 #: assets/js/editor.js:8226
 msgid "Upload"
 msgstr "Enviar"
@@ -4421,7 +4421,7 @@ msgstr "O problema provavelmente foi causado por um dos seus plugins ou tema."
 msgid "Note: The ID link ONLY accepts these chars: %s"
 msgstr "Observação: O link de ID aceita APENAS estes caracteres: %s"
 
-#: includes/controls/media.php:199
+#: includes/controls/media.php:198
 #: modules/link-in-bio/base/widget-link-in-bio-base.php:378
 msgid "Choose File"
 msgstr "Escolher arquivo"
@@ -4460,11 +4460,11 @@ msgid "Location"
 msgstr "Localização"
 
 #. translators: %s: Current post name.
-#: includes/frontend.php:1549
+#: includes/frontend.php:1558
 msgid "Continue reading %s"
 msgstr "Continuar lendo %s"
 
-#: includes/frontend.php:1542
+#: includes/frontend.php:1551
 msgid "(more&hellip;)"
 msgstr "(mais&hellip;)"
 
@@ -4762,7 +4762,7 @@ msgstr "Crie sua primeira página"
 #: includes/settings/admin-menu-items/getting-started-menu-item.php:23
 #: includes/settings/admin-menu-items/getting-started-menu-item.php:27
 #: includes/settings/admin-menu-items/getting-started-menu-item.php:52
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:792
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:792
 msgid "Getting Started"
 msgstr "Iniciando"
 
@@ -4794,12 +4794,12 @@ msgstr "Navegador"
 #: includes/settings/admin-menu-items/getting-started-menu-item.php:56
 #: modules/announcements/module.php:122 assets/js/app-packages.js:2843
 #: assets/js/app.js:3965
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1269
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1486
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1577
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1820
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1995
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:2316
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1269
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1488
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1580
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1823
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1998
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:2319
 msgid "Skip"
 msgstr "Pular"
 
@@ -4837,7 +4837,7 @@ msgstr "Você criou mais de 10 páginas com o Elementor. Ótimo trabalho! Se voc
 msgid "Congrats!"
 msgstr "Parabéns!"
 
-#: core/kits/documents/tabs/settings-lightbox.php:76 includes/frontend.php:1411
+#: core/kits/documents/tabs/settings-lightbox.php:76 includes/frontend.php:1418
 #: includes/widgets/google-maps.php:170 assets/js/ai-admin.js:10249
 #: assets/js/ai-admin.js:10252 assets/js/ai-gutenberg.js:12100
 #: assets/js/ai-gutenberg.js:12103 assets/js/ai-media-library.js:11878
@@ -5054,7 +5054,7 @@ msgstr "Modelo de página padrão do seu tema."
 msgid "Page Layout"
 msgstr "Layout da página"
 
-#: includes/frontend.php:1413 includes/widgets/video.php:994
+#: includes/frontend.php:1420 includes/widgets/video.php:994
 msgid "Play Video"
 msgstr "Reproduzir vídeo"
 
@@ -5071,7 +5071,7 @@ msgstr "Separador"
 #: includes/template-library/sources/admin-menu-items/add-new-template-menu-item.php:23
 #: modules/landing-pages/module.php:271 assets/js/app-packages.js:4610
 #: assets/js/packages/editor-site-navigation/editor-site-navigation.js:2
-#: assets/js/packages/editor-site-navigation/editor-site-navigation.strings.js:5
+#: assets/js/packages/editor-site-navigation/editor-site-navigation.strings.js:8
 msgid "Add New"
 msgstr "Adicionar novo"
 
@@ -5140,7 +5140,7 @@ msgstr "Pesquisar modelos:"
 #: assets/js/packages/editor-site-navigation/editor-site-navigation.js:2
 #: assets/js/packages/editor-site-navigation/editor-site-navigation.strings.js:1
 #: assets/js/packages/editor-site-navigation/editor-site-navigation.strings.js:3
-#: assets/js/packages/editor-site-navigation/editor-site-navigation.strings.js:4
+#: assets/js/packages/editor-site-navigation/editor-site-navigation.strings.js:7
 msgid "Pages"
 msgstr "Páginas"
 
@@ -5298,8 +5298,8 @@ msgid "Select File"
 msgstr "Selecionar arquivo"
 
 #: includes/editor-templates/templates.php:264
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:2167
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:2511
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:2170
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:2514
 msgid "or"
 msgstr "ou"
 
@@ -5316,7 +5316,7 @@ msgstr "Importar modelo para sua biblioteca"
 #: includes/editor-templates/templates.php:282
 #: includes/widgets/traits/button-trait.php:56 assets/js/app.js:7575
 #: assets/js/app.js:8581
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:2523
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:2526
 msgid "Click here"
 msgstr "Clique aqui"
 
@@ -5366,9 +5366,9 @@ msgid "Import Template"
 msgstr "Importar modelo"
 
 #: core/kits/views/panel.php:44 includes/controls/icons.php:83
-#: includes/controls/icons.php:85 includes/controls/media.php:216
-#: includes/controls/media.php:218 includes/controls/media.php:295
-#: includes/controls/media.php:297 includes/editor-templates/repeater.php:27
+#: includes/controls/icons.php:85 includes/controls/media.php:215
+#: includes/controls/media.php:217 includes/controls/media.php:294
+#: includes/controls/media.php:296 includes/editor-templates/repeater.php:27
 #: modules/promotions/widgets/pro-widget-promotion.php:74
 #: assets/js/ai-admin.js:2940 assets/js/ai-admin.js:7620
 #: assets/js/ai-gutenberg.js:4709 assets/js/ai-gutenberg.js:9471
@@ -6252,7 +6252,7 @@ msgstr "Extra pequeno"
 msgid "Improve Elementor"
 msgstr "Melhorar o Elementor"
 
-#: includes/frontend.php:1256
+#: includes/frontend.php:1263
 msgid "Invalid Data: The Template ID cannot be the same as the currently edited template. Please choose a different one."
 msgstr "Dados inválidos: O ID do modelo não pode ser o mesmo do modelo editado atualmente. Escolha um modelo diferente."
 
@@ -6405,7 +6405,7 @@ msgstr "Biblioteca"
 
 #: core/base/document.php:170 includes/editor-templates/global.php:23
 #: includes/editor-templates/responsive-bar.php:68
-#: includes/editor-templates/responsive-bar.php:69 includes/frontend.php:1416
+#: includes/editor-templates/responsive-bar.php:69 includes/frontend.php:1423
 #: assets/js/ai-admin.js:1190 assets/js/ai-gutenberg.js:2959
 #: assets/js/ai-layout.js:1118 assets/js/ai-media-library.js:2819
 #: assets/js/ai.js:3601 assets/js/app-packages.js:2029
@@ -6821,7 +6821,7 @@ msgstr "Esmaecer"
 msgid "Effect"
 msgstr "Efeito"
 
-#: includes/controls/media.php:344
+#: includes/controls/media.php:343
 msgctxt "Image Size Control"
 msgid "Full"
 msgstr "Completo"
@@ -7427,7 +7427,7 @@ msgstr "Slides para rolar"
 msgid "Slides to Show"
 msgstr "Slides para mostrar"
 
-#: includes/controls/media.php:190 includes/widgets/image-box.php:113
+#: includes/controls/media.php:189 includes/widgets/image-box.php:113
 #: includes/widgets/image.php:129 includes/widgets/testimonial.php:147
 #: includes/widgets/video.php:648
 #: modules/link-in-bio/base/widget-link-in-bio-base.php:242
@@ -7936,7 +7936,7 @@ msgid "Yes"
 msgstr "Sim"
 
 #: core/admin/admin-notices.php:459 includes/controls/gallery.php:123
-#: includes/controls/media.php:273
+#: includes/controls/media.php:272
 msgid "Activate Plugin"
 msgstr "Ativar plugin"
 
@@ -8264,7 +8264,7 @@ msgstr "Cor do texto"
 msgid "Typography"
 msgstr "Tipografia"
 
-#: includes/controls/icons.php:80 includes/controls/media.php:239
+#: includes/controls/icons.php:80 includes/controls/media.php:238
 msgid "Add"
 msgstr "Adicionar"
 
@@ -8306,7 +8306,7 @@ msgstr "Responsivo"
 #: modules/floating-buttons/module.php:91
 #: modules/floating-buttons/module.php:96 assets/js/editor.js:9687
 #: assets/js/editor.js:37124
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:1444
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:1442
 msgid "Advanced"
 msgstr "Avançado"
 
@@ -8460,7 +8460,7 @@ msgstr "Adicionar nova seção"
 #: assets/js/ai-gutenberg.js:4125 assets/js/ai-media-library.js:3985
 #: assets/js/ai.js:4767 assets/js/app-packages.js:5312
 #: assets/js/kit-library.ac1a4cd5deae5526ce49.bundle.js:236
-#: assets/js/onboarding.63276cc105f0e633544f.bundle.js:46
+#: assets/js/onboarding.5ceee1b219b66e943cb0.bundle.js:46
 msgid "Loading"
 msgstr "Carregando"
 

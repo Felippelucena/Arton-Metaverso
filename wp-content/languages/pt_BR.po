@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.6.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-09-08 22:00:15+0000\n"
+"PO-Revision-Date: 2024-10-15 01:46:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,7 +56,7 @@ msgstr "off"
 #, gp-priority: high
 msgctxt "Word count type. Do not translate!"
 msgid "words"
-msgstr "words"
+msgstr "palavras"
 
 #: wp-includes/admin-bar.php:188
 #: wp-includes/widgets/class-wp-widget-meta.php:91 wp-login.php:129
@@ -317,6 +317,196 @@ msgstr "Itens excluídos."
 msgid "https://developer.wordpress.org/advanced-administration/wordpress/cookies/#enable-cookies-in-your-browser"
 msgstr "https://developer.wordpress.org/advanced-administration/wordpress/cookies/#enable-cookies-in-your-browser"
 
+#: wp-login.php:1324
+msgid "https://developer.wordpress.org/advanced-administration/wordpress/cookies/"
+msgstr "https://developer.wordpress.org/advanced-administration/wordpress/cookies/"
+
+#: wp-load.php:94 wp-admin/setup-config.php:200
+msgid "https://developer.wordpress.org/advanced-administration/wordpress/wp-config/"
+msgstr "https://developer.wordpress.org/advanced-administration/wordpress/wp-config/"
+
+#: wp-includes/theme.php:4235
+msgid "Custom spacing sizes if defined by the theme."
+msgstr "Tamanhos de espaçamento personalizados, se definidos pelo tema."
+
+#. translators: %s: Taxonomy name.
+#: wp-includes/taxonomy.php:726
+msgctxt "taxonomy template name"
+msgid "%s Archives"
+msgstr "Arquivos: %s"
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:479
+msgid "The uri for the theme's template directory. If this is a child theme, this refers to the parent theme, otherwise this is the same as the theme's stylesheet directory."
+msgstr "O URI do diretório de modelos do tema. Se este for um tema descendente, isso se refere ao tema ascendente, caso contrário, é o mesmo que o diretório da folha de estilos do tema."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:468
+msgid "The uri for the theme's stylesheet directory."
+msgstr "O URI do diretório da folha de estilos do tema."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2362
+msgid "An array of the class names for the post container element."
+msgstr "Um array com os nomes das classes para o elemento de contêiner do post."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:102
+msgid "Override the default excerpt length."
+msgstr "Substitui o tamanho padrão do resumo."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php:427
+msgid "The template_lock associated with the post type, or false if none."
+msgstr "O template_lock associado ao tipo de post; ou falso, se não houver nenhum."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php:420
+msgid "The block template associated with the post type."
+msgstr "O modelo de bloco associado ao tipo de post."
+
+#: wp-includes/rest-api.php:1012 wp-includes/rest-api.php:1043
+msgctxt "REST API resource link name"
+msgid "JSON"
+msgstr "JSON"
+
+#: wp-includes/post.php:369
+msgid "Template updated."
+msgstr "Modelo atualizado."
+
+#: wp-includes/ms-load.php:500
+msgid "https://developer.wordpress.org/advanced-administration/debug/debug-network/"
+msgstr "https://developer.wordpress.org/advanced-administration/debug/debug-network/"
+
+#. translators: Localized tutorial, if one exists. W3C Web Accessibility
+#. Initiative link has list of existing translations.
+#: wp-includes/media-template.php:163
+#: wp-includes/js/dist/block-library.js:13480
+#: wp-includes/js/dist/block-library.js:26887
+#: wp-includes/js/dist/block-library.js:26952
+#: wp-includes/js/dist/block-library.js:32244 wp-admin/includes/media.php:3245
+msgid "https://www.w3.org/WAI/tutorials/images/decision-tree/"
+msgstr "https://www.w3.org/WAI/tutorials/images/decision-tree/"
+
+#. translators: 1: Path pointing to an Interactivity API state property, 2:
+#. Namespace for an Interactivity API store.
+#: wp-includes/interactivity-api/class-wp-interactivity-api.php:576
+msgid "Uncaught error executing a derived state callback with path \"%1$s\" and namespace \"%2$s\"."
+msgstr "Erro não capturado ao executar um callback de estado derivado com caminho \"%1$s\" e namespace \"%2$s\"."
+
+#. translators: %s: The directive value referenced.
+#: wp-includes/interactivity-api/class-wp-interactivity-api.php:536
+msgid "Namespace or reference path cannot be empty. Directive value referenced: %s"
+msgstr "O namespace ou o caminho de referência não podem estar vazios. Valor da diretiva referenciado: %s"
+
+#. translators: %1s: Namespace processed, %2s: The tag that caused the error;
+#. could be any HTML tag.
+#: wp-includes/interactivity-api/class-wp-interactivity-api.php:509
+msgid "Interactivity directives failed to process in \"%1$s\" due to a missing \"%2$s\" end tag."
+msgstr "As diretivas de interatividade não foram processadas em \"%1$s\" devido à falta de um tag \"%2$s\" final."
+
+#. translators: 1: SVG or MATH HTML tag, 2: Namespace of the interactive block.
+#: wp-includes/interactivity-api/class-wp-interactivity-api.php:406
+msgid "Interactivity directives were detected on an incompatible %1$s tag when processing \"%2$s\". These directives will be ignored in the server side render."
+msgstr "Foram encontradas diretivas de interatividade numa tag %1$s incompatível ao processar \"%2$s\". Estas diretivas serão ignoradas no processamento do lado do servidor."
+
+#: wp-includes/interactivity-api/class-wp-interactivity-api.php:282
+msgid "The context can only be read during directive processing."
+msgstr "O contexto só pode ser lido durante o processamento da diretiva."
+
+#: wp-includes/interactivity-api/class-wp-interactivity-api.php:138
+msgid "The namespace can only be omitted during directive processing."
+msgstr "O namespace só pode ser omitido durante o processamento da diretiva."
+
+#: wp-includes/interactivity-api/class-wp-interactivity-api.php:130
+#: wp-includes/interactivity-api/class-wp-interactivity-api.php:292
+msgid "The namespace should be a non-empty string."
+msgstr "O namespace deve ser uma string não vazia."
+
+#: wp-includes/interactivity-api/class-wp-interactivity-api.php:122
+msgid "The namespace is required when state data is passed."
+msgstr "O namespace é obrigatório quando os dados de estado são enviados."
+
+#. translators: 1: SVG or MATH HTML tag.
+#: wp-includes/interactivity-api/class-wp-interactivity-api-directives-processor.php:205
+msgid "Interactivity directives were detected inside an incompatible %1$s tag. These directives will be ignored in the server side render."
+msgstr "Foram encontradas diretivas de interatividade dentro de uma tag %1$s incompatível. Estas diretivas serão ignoradas no processamento do lado do servidor."
+
+#. translators: Documentation explaining HTTPS and why it should be used.
+#: wp-includes/functions.php:8564
+msgid "https://developer.wordpress.org/advanced-administration/security/https/"
+msgstr "https://developer.wordpress.org/advanced-administration/security/https/"
+
+#. translators: Documentation explaining debugging in WordPress.
+#: wp-includes/functions.php:6001
+#: wp-admin/includes/class-wp-site-health.php:1378
+msgid "https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/"
+msgstr "https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/"
+
+#: wp-includes/embed.php:342
+msgctxt "oEmbed resource link name"
+msgid "oEmbed (XML)"
+msgstr "oEmbed (XML)"
+
+#: wp-includes/embed.php:339
+msgctxt "oEmbed resource link name"
+msgid "oEmbed (JSON)"
+msgstr "oEmbed (JSON)"
+
+#: wp-includes/deprecated.php:708
+msgctxt "Categories dropdown (show_option_none parameter)"
+msgid "None"
+msgstr "Nenhuma"
+
+#: wp-includes/customize/class-wp-customize-themes-section.php:127
+#: wp-includes/customize/class-wp-customize-themes-section.php:141
+msgid "Search themes"
+msgstr "Pesquisar temas"
+
+#. translators: 1: Title of a menu item, 2: Type of a menu item, 3, Item index,
+#. 4, Total items, 5: Item parent, 6: Item depth.
+#: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:93
+msgid "Edit %1$s (%2$s, sub-item %3$d of %4$d under %5$s, level %6$s)"
+msgstr "Editar %1$s (%2$s, subitem %3$d de %4$d em %5$s, nível %6$s)"
+
+#. translators: 1: version string, 2: version string.
+#: wp-includes/class-wp-token-map.php:411
+msgid "Loaded version '%1$s' incompatible with expected version '%2$s'."
+msgstr "A versão carregada '%1$s' é incompatível com a versão esperada '%2$s'."
+
+#: wp-includes/class-wp-token-map.php:401
+msgid "Missing required inputs to pre-computed WP_Token_Map."
+msgstr "Faltam informações obrigatórias no WP_Token_Map pré-calculado."
+
+#. translators: 1: maximum byte length (a count)
+#: wp-includes/class-wp-token-map.php:300
+msgid "Token Map tokens and substitutions must all be shorter than %1$d bytes."
+msgstr "Os tokens e as substituições do mapa de tokens devem ser todos menores que %1$d bytes."
+
+#. translators: %1$s: The filter name.
+#: wp-includes/class-wp-theme.php:2022
+msgid "The %1$s filter must return an integer value greater than 0."
+msgstr "O filtro %1$s deve retornar um valor inteiro maior que 0."
+
+#. translators: 1: Item name, 2: Item type, 3: Item index, 4: Total items, 5:
+#. Item parent, 6: Item depth.
+#: wp-includes/class-wp-customize-nav-menus.php:570 wp-admin/nav-menus.php:588
+msgid "Edit %1$s (%2$s, sub-item %3$d of %4$d under %5$s, level %6$d)"
+msgstr "Editar %1$s (%2$s, subitem %3$d de %4$d em %5$s, nível %6$d)"
+
+#. translators: 1: Item name, 2: Item type, 3: Item index, 4: Total items, 5:
+#. Item parent.
+#. translators: 1: Title of a menu item, 2: Type of a menu item, 3, Item index,
+#. 4, Total items, 5: Item parent.
+#: wp-includes/class-wp-customize-nav-menus.php:568
+#: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:88
+#: wp-admin/nav-menus.php:586
+msgid "Edit %1$s (%2$s, sub-item %3$d of %4$d under %5$s)"
+msgstr "Editar %1$s (%2$s, subitem %3$d de %4$d em %5$s)"
+
+#. translators: 1: Item name, 2: Item type, 3: Item index, 4: Total items.
+#. translators: 1: Title of a menu item, 2: Type of a menu item. 3: Item index,
+#. 4: Total items.
+#: wp-includes/class-wp-customize-nav-menus.php:566
+#: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:83
+#: wp-admin/nav-menus.php:584
+msgid "Edit %1$s (%2$s, %3$d of %4$d)"
+msgstr "Editar %1$s (%2$s, %3$d de %4$d)"
+
 #: wp-includes/class-wp-customize-manager.php:5703
 msgid "https://developer.wordpress.org/advanced-administration/wordpress/css/"
 msgstr "https://developer.wordpress.org/advanced-administration/wordpress/css/"
@@ -324,6 +514,19 @@ msgstr "https://developer.wordpress.org/advanced-administration/wordpress/css/"
 #: wp-includes/class-wp-block-styles-registry.php:69
 msgid "Block name must be a string or array."
 msgstr "O nome do bloco deve ser uma string ou array."
+
+#. translators: 1: A URL to a post, 2: Hidden accessibility text: Post title
+#: wp-includes/blocks/latest-posts.php:161
+msgid "… <a class=\"wp-block-latest-posts__read-more\" href=\"%1$s\" rel=\"noopener noreferrer\">Read more<span class=\"screen-reader-text\">: %2$s</span></a>"
+msgstr "… <a class=\"wp-block-latest-posts__read-more\" href=\"%1$s\" rel=\"noopener noreferrer\">Leia mais<span class=\"screen-reader-text\">: %2$s</span></a>"
+
+#: wp-includes/block-supports/typography.php:552
+msgid "`boolean` type for second argument `$settings` is deprecated. Use `array()` instead."
+msgstr "O tipo `boolean` para o segundo argumento `$settings` está obsoleto. Use `array()` em vez disso."
+
+#: wp-includes/block-supports/elements.php:128
+msgid "Use as a `pre_render_block` filter is deprecated. Use with `render_block_data` instead."
+msgstr "O uso como filtro `pre_render_block` está obsoleto. Use com `render_block_data` em vez disso."
 
 #: wp-includes/blocks/footnotes/block.json
 msgctxt "block description"
@@ -970,6 +1173,10 @@ msgstr "sanfona"
 #: wp-admin/includes/class-wp-posts-list-table.php:1562
 msgid "Export as JSON"
 msgstr "Exportar como JSON"
+
+#: wp-includes/post.php:434
+msgid "Template part updated."
+msgstr "Parte de modelo atualizada."
 
 #: wp-includes/taxonomy.php:235
 msgctxt "taxonomy singular name"

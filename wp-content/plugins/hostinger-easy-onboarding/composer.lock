@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:hostinger/hostinger-wp-amplitude.git",
-                "reference": "1574b50a48422ebbc5c4af72491ad65d14d977a3"
+                "reference": "3deeead8b22f32349515fd5960b64d8124548971"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hostinger/hostinger-wp-amplitude/zipball/1574b50a48422ebbc5c4af72491ad65d14d977a3",
-                "reference": "1574b50a48422ebbc5c4af72491ad65d14d977a3",
+                "url": "https://api.github.com/repos/hostinger/hostinger-wp-amplitude/zipball/3deeead8b22f32349515fd5960b64d8124548971",
+                "reference": "3deeead8b22f32349515fd5960b64d8124548971",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "source": "https://github.com/hostinger/hostinger-wp-amplitude/tree/main",
                 "issues": "https://github.com/hostinger/hostinger-wp-amplitude/issues"
             },
-            "time": "2024-08-28T14:45:57+00:00"
+            "time": "2024-10-16T05:57:22+00:00"
         },
         {
             "name": "hostinger/hostinger-wp-helper",
@@ -93,12 +93,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:hostinger/hostinger-wp-menu-manager.git",
-                "reference": "766ab6448cfc411e4a58e6dac0399d8280efd4e8"
+                "reference": "91e21010dfc8dec2b4f8c2d61da16739f6c03eb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hostinger/hostinger-wp-menu-manager/zipball/766ab6448cfc411e4a58e6dac0399d8280efd4e8",
-                "reference": "766ab6448cfc411e4a58e6dac0399d8280efd4e8",
+                "url": "https://api.github.com/repos/hostinger/hostinger-wp-menu-manager/zipball/91e21010dfc8dec2b4f8c2d61da16739f6c03eb3",
+                "reference": "91e21010dfc8dec2b4f8c2d61da16739f6c03eb3",
                 "shasum": ""
             },
             "require": {
@@ -129,7 +129,7 @@
                 "source": "https://github.com/hostinger/hostinger-wp-menu-manager/tree/main",
                 "issues": "https://github.com/hostinger/hostinger-wp-menu-manager/issues"
             },
-            "time": "2024-09-10T11:12:45+00:00"
+            "time": "2024-10-09T07:01:45+00:00"
         },
         {
             "name": "hostinger/hostinger-wp-surveys",
@@ -137,12 +137,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:hostinger/hostinger-wp-surveys.git",
-                "reference": "466094f7af77cf580e0d415183c704aecdae7a35"
+                "reference": "f9d2868638292c7eb43560386990bb9da21656e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hostinger/hostinger-wp-surveys/zipball/466094f7af77cf580e0d415183c704aecdae7a35",
-                "reference": "466094f7af77cf580e0d415183c704aecdae7a35",
+                "url": "https://api.github.com/repos/hostinger/hostinger-wp-surveys/zipball/f9d2868638292c7eb43560386990bb9da21656e1",
+                "reference": "f9d2868638292c7eb43560386990bb9da21656e1",
                 "shasum": ""
             },
             "require": {
@@ -175,7 +175,7 @@
                 "source": "https://github.com/hostinger/hostinger-wp-surveys/tree/main",
                 "issues": "https://github.com/hostinger/hostinger-wp-surveys/issues"
             },
-            "time": "2024-10-01T06:08:57+00:00"
+            "time": "2024-10-08T06:20:26+00:00"
         },
         {
             "name": "yahnis-elsts/plugin-update-checker",
@@ -515,12 +515,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSExtra.git",
-                "reference": "6f99815752a5b27f0e6e751777f305cb8eb3fe66"
+                "reference": "d0304203dd7c6f8eab21ed8adabe5e3be380bdbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSExtra/zipball/6f99815752a5b27f0e6e751777f305cb8eb3fe66",
-                "reference": "6f99815752a5b27f0e6e751777f305cb8eb3fe66",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSExtra/zipball/d0304203dd7c6f8eab21ed8adabe5e3be380bdbe",
+                "reference": "d0304203dd7c6f8eab21ed8adabe5e3be380bdbe",
                 "shasum": ""
             },
             "require": {
@@ -586,7 +586,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-10-03T17:43:50+00:00"
+            "time": "2024-10-14T00:01:10+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
@@ -594,12 +594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "b3d58ca0d6a3f19eb9e187375d3a4af1ef498d12"
+                "reference": "a6a0a723bc4efce5b8a12646f28bb83c4610dfac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/b3d58ca0d6a3f19eb9e187375d3a4af1ef498d12",
-                "reference": "b3d58ca0d6a3f19eb9e187375d3a4af1ef498d12",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/a6a0a723bc4efce5b8a12646f28bb83c4610dfac",
+                "reference": "a6a0a723bc4efce5b8a12646f28bb83c4610dfac",
                 "shasum": ""
             },
             "require": {
@@ -675,7 +675,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-10-07T04:24:02+00:00"
+            "time": "2024-10-13T23:57:40+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -683,12 +683,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "2e3c58b0f4936bc1f83d4c5783248acc589fe858"
+                "reference": "16c087f0e3ef52ec98be58150e4bc9a1e33ce166"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/2e3c58b0f4936bc1f83d4c5783248acc589fe858",
-                "reference": "2e3c58b0f4936bc1f83d4c5783248acc589fe858",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/16c087f0e3ef52ec98be58150e4bc9a1e33ce166",
+                "reference": "16c087f0e3ef52ec98be58150e4bc9a1e33ce166",
                 "shasum": ""
             },
             "require": {
@@ -756,7 +756,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-10-07T04:54:41+00:00"
+            "time": "2024-10-13T23:25:54+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",

@@ -3,7 +3,7 @@ Tags: onboarding, hostinger
 Requires at least: 5.5
 Tested up to: 6.6
 Requires PHP: 8.0
-Stable tag: 2.0.32
+Stable tag: 2.0.34
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -103,6 +103,13 @@ Watching for Changes: During development, you can use "npm run watch" to continu
 
 
 == Changelog ==
+
+2.0.34 (2024-10-16)
+- Admin bar menu labels and links edit
+- Updated amplitude package
+
+2.0.33 (2024-10-14)
+- Amplitude events including impersonation
 
 2.0.32 (2024-10-03)
 - Added edit home page admin bar link

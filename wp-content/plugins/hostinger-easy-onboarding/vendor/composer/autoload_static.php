@@ -51,6 +51,7 @@ class ComposerStaticInit355c18229fe47c20ad676cad3dd03349
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Hostinger\\Amplitude\\ActionDispatcher' => __DIR__ . '/..' . '/hostinger/hostinger-wp-amplitude/src/ActionDispatcher.php',
         'Hostinger\\Amplitude\\AmplitudeLoader' => __DIR__ . '/..' . '/hostinger/hostinger-wp-amplitude/src/AmplitudeLoader.php',
         'Hostinger\\Amplitude\\AmplitudeManager' => __DIR__ . '/..' . '/hostinger/hostinger-wp-amplitude/src/AmplitudeManager.php',
         'Hostinger\\Amplitude\\Rest' => __DIR__ . '/..' . '/hostinger/hostinger-wp-amplitude/src/Rest.php',
