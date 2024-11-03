@@ -1,0 +1,19 @@
+.swal2-container {
+    z-index: 9999 !important;
+    padding-top: 100px;
+
+}
+
+.font-t20 {
+    font-family: Tormenta20, sans-serif !important;
+    
+}
+
+.toast-container {
+    z-index: 105000; 
+    }
+
+
+.offcanvas {
+    z-index: 100000 !important;
+}
