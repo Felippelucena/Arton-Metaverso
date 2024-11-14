@@ -1,4 +1,5 @@
 (function ($) {
+
   $(document).ready(function () {
     function consultarLivro(tabelas) {
       let dadosCarregados = {};
@@ -27,11 +28,7 @@
               localStorage.setItem(tabela, JSON.stringify(response[tabela]));
             }
           });
-          console.log("Dados salvos no localStorage:", response);
-        },
-        error: function (error) {
-          console.log("Erro ao obter dados:", error);
-        },
+        }
       });
     }
     consultarLivro(["racas", "habilidades_raca","pericias"]);

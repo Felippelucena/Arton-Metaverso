@@ -1,6 +1,6 @@
 <?php
 function tm_consultar_livro() {
-    global $wpdb;
+    global $tormenta_db;
 
     // Obter a lista de tabelas enviada pelo AJAX
     $tabelas = isset($_POST['tabelas']) ? $_POST['tabelas'] : [];
@@ -9,10 +9,10 @@ function tm_consultar_livro() {
 
     foreach ($tabelas as $tabela) {
         // Montar o nome da tabela completo
-        $nome_tabela = "wp_T20_" . $tabela;
+        $nome_tabela = $tabela;
 
         // Consultar os dados da tabela
-        $resultado = $wpdb->get_results("SELECT * FROM {$nome_tabela}", ARRAY_A);
+        $resultado = $tormenta_db->get_results("SELECT * FROM {$nome_tabela}", ARRAY_A);
 
         // Adicionar os dados ao array de resposta
         $dados[$tabela] = $resultado;

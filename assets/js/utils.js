@@ -45,3 +45,9 @@ function rolarDado(dados = 1, lados = 20) {
     }
     return { soma, resultados };
 }
+
+
+function getQueryStringParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }

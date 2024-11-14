@@ -129,12 +129,13 @@ function pagina_personagens_html()
                 }
 
                 const chaveAleatoria = `${Date.now()}-${Math.random()}`;
-                localStorage.setItem(`perso_${chaveAleatoria}`, JSON.stringify(personagem));
+                const nomeStorage = `perso_${chaveAleatoria}`;
+                localStorage.setItem(nomeStorage, JSON.stringify(personagem));
                 localStorage.setItem("notificacao", JSON.stringify({
                     tipo: "success",
                     mensagem: `${nome} criado com sucesso!`
                 }));
-                location.reload();
+                window.location.href = `/ficha-personagem/?p=${nomeStorage}`;
             });
 
             // Função para atualizar personagem
