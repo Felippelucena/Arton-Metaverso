@@ -15,6 +15,9 @@ function modal_atributos_comprar_html()
                 <div class="modal-body">
                     <div class="container" id="modal_atributos_comprar_div"></div>
                 </div>
+                <div class="modal-footer">
+                    <button id="salvar_atributo_comprados" type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+                </div>
             </div>
         </div>
     </div>
@@ -24,9 +27,12 @@ function modal_atributos_comprar_html()
                 const personagemID = getQueryStringParam("p");
 
                 //Modal ATRIBUTOS COMPRAR
-                $("#ficha_atributos_comprar").click(function() {
-                    html = modalAtributosComprar();
-                    $("#modal_atributos_comprar_div").html(html);
+
+                document.addEventListener("click", function(event) {
+                    if (event.target && event.target.classList.contains("ficha_atributos_comprar")) {
+                        html = modalAtributosComprar();
+                        $("#modal_atributos_comprar_div").html(html);
+                    }
                 });
                 //Alterar Atributo - tag base
                 $(document).on("click", ".edit_atb_base_mais", function() {
@@ -111,6 +117,12 @@ function modal_atributos_comprar_html()
                         }
                     }
                 }
+
+                $("#salvar_atributo_comprados").click(function() {
+
+                    notify("success", "Atributos salvos com sucesso!");
+
+                });
             });
         })(jQuery);
     </script>

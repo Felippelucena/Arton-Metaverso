@@ -17,10 +17,10 @@ function modal_atributos_html()
                         <h5>Como deseja definir seus atributos?</h5>
                         <p style='font-size:0.8em;color:red'>Cuidado! Escolher um método reseta as configurações do outro.</p>
                         <div class="row justify-content-center gap-3">
-                            <button id="ficha_atributos_comprar" class="col-4 btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal_atributos_comprar">
+                            <button class="ficha_atributos_comprar col-4 btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal_atributos_comprar">
                                 Comprar
                             </button>
-                            <button id="ficha_atributos_rolar" class="col-4 btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal_atributos_rolar">
+                            <button  class="ficha_atributos_rolar col-4 btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal_atributos_rolar">
                                 Rolar
                             </button>
                         </div>
@@ -39,6 +39,10 @@ function modal_atributos_html()
                 const personagemID = getQueryStringParam("p");
                 //Modal ATRIBUTOS
                 $("#ficha_atributos_config").click(function() {
+                    html = modalAtributos();
+                    $("#modal_atributos_div").html(html);
+                });
+                $("#ficha_guiada_atributos_config").click(function() {
                     html = modalAtributos();
                     $("#modal_atributos_div").html(html);
                 });

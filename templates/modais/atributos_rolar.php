@@ -26,8 +26,15 @@ function modal_atributos_rolar_html()
             $(document).ready(function() {
                 const personagemID = getQueryStringParam("p");
 
-                //Modal ATRIBUTOS ROLAR
-                $("#ficha_atributos_rolar").click(function() {
+                // adicionar evento que verifica se um botao da classe .ficha_atributos_rolar é clicado
+                document.addEventListener("click", function(event) {
+                    if (event.target && event.target.classList.contains("ficha_atributos_rolar")) {
+                        pagina_rolar()
+                    }
+                });
+
+                function pagina_rolar() {
+
                     let personagem = JSON.parse(localStorage.getItem(personagemID));
                     let valoresRolados = [];
                     if (typeof personagem.pontos_disponiveis !== "object") {
@@ -44,20 +51,20 @@ function modal_atributos_rolar_html()
                         Swal.fire({
                             title: "<span class='font-t20'>Rolando os Dados</span>",
                             html: `
-              <div id="valores-rolados-container" class="row g-2 justify-content-center">
-                ${valoresRolados
-                  .map(
-                    (valor, i) => `
-                  <div class="col-4 col-sm-2">
-                    <div class="text-center p-2 border rounded font-t20" style="font-size: 2em;">
-                      <span id="valor-${i}" style="opacity: 0;">${valor}</span>
-                    </div>
-                  </div>
-                `
-                  )
-                  .join("")}
-              </div>
-            `,
+                                    <div id="valores-rolados-container" class="row g-2 justify-content-center">
+                                        ${valoresRolados
+                                        .map(
+                                            (valor, i) => `
+                                        <div class="col-4 col-sm-2">
+                                            <div class="text-center p-2 border rounded font-t20" style="font-size: 2em;">
+                                            <span id="valor-${i}" style="opacity: 0;">${valor}</span>
+                                            </div>
+                                        </div>
+                                        `
+                                        )
+                                        .join("")}
+                                    </div>
+                                    `,
                             timer: 4000,
                             timerProgressBar: true,
                             didOpen: () => {
@@ -82,8 +89,9 @@ function modal_atributos_rolar_html()
                     } else {
                         let html = modalAtributosRolar();
                         $("#modal_atributos_rolar_div").html(html);
+
                     }
-                });
+                }
 
                 // Adiciona evento de mudança aos selects
                 document.addEventListener("change", function(event) {
@@ -96,8 +104,7 @@ function modal_atributos_rolar_html()
                 document.addEventListener("click", function(event) {
                     if (event.target && event.target.id === "btn-rolar-atributos") {
                         substituirCampoFicha("pontos_disponiveis", "rolar");
-                        // simular click no botão #ficha_atributos_rolar
-                        document.getElementById("ficha_atributos_rolar").click();
+                        pagina_rolar()
                     }
                 });
 

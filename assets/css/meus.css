@@ -17,3 +17,103 @@
 .offcanvas {
     z-index: 100000 !important;
 }
+
+    /*FICHA PERSONAGEM*/
+
+.diamante {
+    /*diamante */
+    background: linear-gradient(45deg, rgb(218, 255, 253), rgb(51, 173, 255), rgb(245, 255, 255), #b0bcff, #fff6fe, #d8f7ff);
+    background-size: 300% 300%;
+    animation: animateGradient 25s linear infinite;
+}
+
+.diamante:hover {
+    /*aumentar a escala, com transição suave*/
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
+/*animar degrade do diamanete*/
+@keyframes animateGradient {
+    0% {
+        background-position: 0% 50%;     
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }    
+}
+
+.div-pagina {
+    background-color: #1b0202;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-ficha {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.ficha_habilidades {
+    background: url('https://arton.felippelucena.com/wp-content/uploads/2024/10/Ativo-6@4x-8.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.ficha_vida_mana {
+    background: url('https://arton.felippelucena.com/wp-content/uploads/2024/10/Ativo-3@4x-8.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 150px;
+    width: 420px;
+}
+
+.titulo_ficha {
+    background: linear-gradient(45deg, rgb(218, 255, 253), rgb(51, 173, 255), rgb(245, 255, 255), #b0bcff, #fff6fe, #d8f7ff);
+    background-size: 300% 300%;
+    font-size: 2.5em;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: animateGradient 25s linear infinite;
+    border: none;
+}
+
+@media (min-width: 1024px) {
+    .titulo_ficha {
+        font-size: 4em;
+    }
+}
+
+
+/*FICHA GUIADA*/
+
+.balao-dialogo {
+    background-color: #ebe3e3;
+    border-color: #ff0000;
+    color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    opacity: 0;
+    /* Inicialmente invisível */
+    transform: translateY(10px);
+    /* Pequeno deslocamento para baixo */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.balao-dialogo.mostrar {
+    opacity: 1;
+    /* Torna o parágrafo visível */
+    transform: translateY(0);
+    /* Remove o deslocamento */
+}

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Gerenciador Tormenta20
 Description: Plugin para gerenciar partidas de Tormenta20.
-Version: 3.0
+Version: 3.1
 Author: Felippe Lucena
 */
 
@@ -56,8 +56,6 @@ function tm_carregar_assets() {
 
     if (is_page('ficha-personagem')) {
         wp_enqueue_script('personagem-script', plugin_dir_url(__FILE__) . 'assets/js/ficha_personagem/personagem-manager.js', array('jquery'), null, true);
-        wp_enqueue_script('ficha-guiada-script', plugin_dir_url(__FILE__) . 'assets/js/ficha_personagem/ficha-guiada-manager.js', array('personagem-script','jquery'), null, true);
-        wp_enqueue_script('ficha-personagem-script', plugin_dir_url(__FILE__) . 'assets/js/ficha_personagem/ficha-manager.js', array('personagem-script', 'jquery'), null, true);
     }
 }
 add_action('wp_enqueue_scripts', 'tm_carregar_assets');

@@ -124,7 +124,7 @@ function exibirHabilidades() {
     let cont = 0;
     for (let habilidade in habilidades_raca) {
       ficha_habilidades.innerHTML += `
-            <div class="col-md-6  g-1">
+            <div class="g-1">
               <div class="input-group">
                 <input type="text" id="" class="form-control" value="${habilidade}" disabled>
                 <button  class="btn btn-danger" type="button" habilidade="${habilidade}" data-bs-toggle="collapse" data-bs-target="#collapse${cont}" aria-expanded="false" aria-controls="collapse${cont}">@</button>

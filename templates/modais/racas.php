@@ -70,8 +70,8 @@ function modal_raca_html()
         (function($) {
             $(document).ready(function() {
                 const personagemID = getQueryStringParam("p");
-                //Modal RAÇA
-                $(document).on("click", "#ficha_raca_modal", function() {
+
+                $(document).on("click", ".ficha_raca_modal", function() {
                     modalRacaPreencherSelect();
                 });
 
@@ -238,6 +238,7 @@ function modal_raca_html()
                                 substituirAtributo(atributo, "raca", atributos[atributo]);
                             }
                         }
+                        notify("success", "Raça atualizada com sucesso!");
                     }
                 }
             });

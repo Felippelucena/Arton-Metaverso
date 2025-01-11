@@ -17,6 +17,7 @@
             this.pv = {dano:0, temporario:0, maximo:{base:0}, por_nivel:{base:0}};
             this.pm = {dano:0, temporario:0, maximo:{base:0}, por_nivel:{base:0}};
             this.pontos_disponiveis = 10;
+            this.step = 0;
             this.atributos = {
                 for: {base: 0},
                 des: {base: 0},

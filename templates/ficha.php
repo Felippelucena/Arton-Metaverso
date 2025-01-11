@@ -2,42 +2,6 @@
 function ficha_personagem_html()
 {
     ob_start(); ?>
-
-    <style>
-        .div-pagina {
-            background: url('https://arton.felippelucena.com/wp-content/uploads/2024/10/929a8137-0318-4200-a619-8efcfa64a826.jpeg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: bottom;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .div-ficha {
-            background-color: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .ficha_habilidades {
-            background: url('https://arton.felippelucena.com/wp-content/uploads/2024/10/Ativo-6@4x-8.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-        }
-
-        .titulo_ficha {
-            color: white;
-            font-size: 4em;
-            /*sombra com animação do mouse*/
-            text-shadow: 0 0 10px #f00, 0 0 20px #f35, 0 0 30px #f53, 0 0 40px #fa4787, 0 0 70px #f400de, 0 0 80px #f36874;
-        }
-    </style>
-
     <!--Estilos tabela pericia-->
     <style>
         .tab_pericias_header {
@@ -75,8 +39,6 @@ function ficha_personagem_html()
             width: 10%;
         }
     </style>
-
-
     <!--Inicio da Ficha-->
     <div class="div-pagina">
         <div class="container div-ficha p-3 rounded-3" id="ficha_de_personagem">
@@ -99,13 +61,15 @@ function ficha_personagem_html()
                     </div>
                 </div>
                 <!--Tituloda Ficha-->
-                <div class="col-lg-6 col-md-12 order-1 order-lg-3 text-center align-content-center" style="display:flex">
-                    <h1 class="font-t20 titulo_ficha" style="display:flex;">Tormenta 20</h1>
-                    <button id="botao_ficha_guiada" class="btn">
-                            <span class="game-icons--cyborg-face fs-3"></span>
+                <div class="col-lg-6 col-md-12 order-1 order-lg-3">
+                    <div class="input-group bg-dark" style="border-radius:30px;">
+                        <input type="text" id="ficha_titulo" class="form-control font-t20 lh-1 titulo_ficha" value="Tormenta 20" disabled>
+                        <button id="botao_ficha_guiada" style="border-left:1px solid #aaa" class="btn btn-dark" type="button">
+                            <span class="game-icons--cyborg-face fs-3 diamante"></span>
                         </button>
+                    </div>
                 </div>
-                
+
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -115,7 +79,7 @@ function ficha_personagem_html()
                             <label for="ficha_raca" class="form-text px-4">Raça</label>
                             <div class="input-group mb-3">
                                 <input type="text" id="ficha_raca" class="form-control" placeholder="Escolha sua raça" disabled>
-                                <button id="ficha_raca_modal" class="btn btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal_raca">
+                                <button class="ficha_raca_modal btn btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal_raca">
                                     <i class="bi bi-gear-fill"></i>
                                 </button>
                             </div>
@@ -165,8 +129,24 @@ function ficha_personagem_html()
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="col-lg-7 row align-content-center">
                     <?php echo atributos_html('ficha', 'true'); ?>
+                </div>
+                <!--Vida e Mana-->
+                <div class="col-lg-5">
+                    <div class="ficha_vida_mana" style="display: flex;">
+                        <div class="text-center font-t20 mt-2" style="width:190px;">
+                            <h1 style="height: 30px;">0</h1>
+                            <span style="height: 5px;">Vida</span>
+                            <h1 style="height: 30px;">0</h1>
+                            <span style="height: 5px;">Mana</span>
+                        </div>
+                        <div class="text-center row" style="width:100%;">
+                            <div class="col-4 p-2 mt-2">asd</div>
+                            <div class="col-4 p-2 mt-2">asd</div>
+                            <div class="col-4 p-2 mt-2">asd</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6 p-3">
                     <!--Habilidades-->
@@ -222,6 +202,99 @@ function ficha_personagem_html()
 
     <!--Modal Atributos Rolar-->
     <?php echo modal_atributos_rolar_html(); ?>
+
+    <script>
+        (function($) {
+            $(document).ready(function() {
+
+                if (!personagemID) {
+                    window.location.href = "/personagens";
+                    localStorage.setItem(
+                        "notificacao",
+                        JSON.stringify({
+                            tipo: "error",
+                            mensagem: `É necessário escolher um personagem para abrir a ficha.`,
+                        })
+                    );
+                }
+
+                const tablela_pericias = jQuery("#tabela_pericias").DataTable();
+
+                function periciasTable() {
+                    const periciasDados = JSON.parse(localStorage.getItem("pericias")) || [];
+                    tablela_pericias.clear().draw();
+                    periciasDados.forEach((pericia) => {
+                        let nome = pericia.nome;
+                        if (pericia.treinado) {
+                            nome += ` <i style="font-size:0.8em" class='ra ra-archery-target ra-lg'></i>`;
+                        }
+                        if (pericia.penalidade) {
+                            nome += ` <i style="font-size:0.8em" class='ra ra-cracked-shield ra-lg'></i>`;
+                        }
+                        tablela_pericias.row
+                            .add([
+                                `<span style="margin-left:30px">${nome}</span>` || "N/A",
+                                `<span pericia="${
+                pericia.nome
+              }" class="pericia_total font-t20 fs-4">${totalPericia(pericia.nome)}</span>` || 0,
+                                pericia.atributo || "N/A",
+                                `<input class="form-check-input" type="checkbox" value="" aria-label="Perícia Treinada" pericia="${pericia.nome}">`,
+                            ])
+                            .draw();
+                    });
+                }
+                periciasTable();
+
+                const carregarFichaPersonagem = async () => {
+                    const personagem = JSON.parse(localStorage.getItem(personagemID));
+                    if (personagem) {
+                        document.getElementById("ficha_nome").value = personagem.nome;
+                        document.getElementById("ficha_jogador").value = personagem.jogador;
+                        const atributos = ["for", "des", "con", "int", "sab", "car"];
+                        for (const atb of atributos) {
+                            document.getElementById(`ficha_${atb}`).value = totalAtributo(atb);
+                        }
+                        if (personagem.raca?.nome) {
+                            document.getElementById("ficha_raca").value = personagem.raca.nome;
+                        }
+                        exibirHabilidades();
+                    }
+                };
+                carregarFichaPersonagem();
+
+                // Atualizar nome do personagem em tempo real
+                document.querySelector("#ficha_nome").addEventListener("input", (event) => {
+                    substituirCampoFicha("nome", event.target.value);
+                });
+
+
+                // ATRIBUTOS
+
+                // Alterar Atributo - tag jogador
+                $(".ficha_atb_mais").on("click", function() {
+                    let atributo = $(this).data("atributo");
+                    atualizarAtributo(atributo, "jogador", 1);
+                });
+                $(".ficha_atb_menos").on("click", function() {
+                    let atributo = $(this).data("atributo");
+                    atualizarAtributo(atributo, "jogador", -1);
+                });
+
+                $(".nao-fechar-modal").click(function(event) {
+                    event.preventDefault(); // Previne comportamento padrão
+
+                    // Resgatar o valor do atributo data-modal
+                    let modal = $(this).data("modal");
+
+                    // Criar uma nova instância do modal e exibi-lo
+                    const modalB = new bootstrap.Modal(document.getElementById(modal));
+                    modalB.show();
+                });
+
+
+            });
+        })(jQuery);
+    </script>
 
 <?php
     return ob_get_clean();

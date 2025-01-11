@@ -69,6 +69,47 @@ function atributos_html($nome, $edicao)
             });
         }
         atributosTemplate();
+
+        jQuery(document).ready(function($) {
+            //ROLAR ATRIBUTOS
+            $(".rolar_atb_ficha").on("click", function() {
+                let atributo = $(this).data("atributo");
+                let valor_atb = totalAtributo(atributo);
+                let valor_dado = rolarDado().soma;
+                let color = "black";
+                if (valor_dado < 10) {
+                    color = "red";
+                } else if (valor_dado < 16) {
+                    color = "#DB9D00";
+                } else if (valor_dado < 19) {
+                    color = "green";
+                } else {
+                    color = "blue";
+                }
+                Swal.fire({
+                    title: `Teste de ${atributo.toUpperCase()}`,
+                    html: `
+                        <style>
+                            .swal2-popup {
+                                background: url('https://arton.felippelucena.com/wp-content/uploads/2024/10/Ativo-12@4x-8.png');
+                                background-size: 100% 100%;
+                                background-repeat: no-repeat;
+                            }
+                        </style>
+                        <div>
+                            <strong style="font-size:3.5em;font-family:Tormenta20;color:${color}">${
+                            valor_atb + valor_dado
+                        }</strong>
+                            <p>
+                            <span class="m-2 bg-light p-2">d20=<strong>${valor_dado}</strong></span>
+                            <span class="m-2 bg-light p-2">atb=<strong>${valor_atb}</strong></span>
+                            </p>
+                        </div>
+                        `,
+                    confirmButtonText: "Fechar",
+                });
+            });
+        });
     </script>
 <?php
     return ob_get_clean();
